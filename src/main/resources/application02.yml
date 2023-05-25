@@ -94,4 +94,3 @@ spring:
             props:
               # 声明分表的节点数量
               sharding-count: 2
-

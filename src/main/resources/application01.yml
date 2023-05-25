@@ -79,5 +79,3 @@ spring:
             props:
               # 选择对shoping_id做取模运算（行表达式方式）
               algorithm-expression: ds$->{shoping_id % 2}
-
-
