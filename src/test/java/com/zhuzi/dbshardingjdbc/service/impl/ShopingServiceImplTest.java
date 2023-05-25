@@ -44,9 +44,10 @@ class ShopingServiceImplTest extends DbShardingJdbcApplicationTests {
      * **/
     @Test
     void tableStrategyInsert() {
-        for (int i = 1; i <= 20; i++){
-            Shoping shoping =
-                    new Shoping((long) i, "白玉"+ i +"号竹子", i * 888);
+        for (int i = 21; i <= 40; i++) {
+            Shoping shoping = new Shoping();
+            shoping.setShopingName("黄金" + i + "号竹子");
+            shoping.setShopingPrice(i * 888);
             shopingService.insertSelective(shoping);
         }
     }
@@ -56,7 +57,7 @@ class ShopingServiceImplTest extends DbShardingJdbcApplicationTests {
      * **/
     @Test
     void findByShopingID() {
-        Shoping shoping = shopingService.selectByPrimaryKey(1L);
+        Shoping shoping = shopingService.selectByPrimaryKey(868381720682954752L);
         System.out.println(shoping);
     }
 

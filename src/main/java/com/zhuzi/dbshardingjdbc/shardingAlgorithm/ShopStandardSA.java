@@ -21,14 +21,15 @@ public class ShopStandardSA implements StandardShardingAlgorithm {
         long shopingID = (Long)psv.getValue();
         // 将获取到的long值转换为BigInteger数值
         BigInteger shopIdBI = BigInteger.valueOf(shopingID);
-        // 通过获取到的ID值对2取模，计算出目标表的后缀
-        BigInteger target = shopIdBI.mod(new BigInteger("2"));
+        // 通过获取到的ID值对2取模+1，计算出目标表的后缀
+        BigInteger target = shopIdBI.mod(new BigInteger("2")).add(new BigInteger("1"));
         // 拼接上逻辑表名作为前缀，得到最终的目标表名
         String targetTable = logicTableName + "_0" + target;
         // 判断计算出的目标表是否在Logic_DB中存在
-        if (collection.contains(target))
+        if (collection.contains(target)) {
             // 如果配置的数据节点中有这张表，则直接返回目标表名
             return targetTable;
+        }
         // 不存在则抛出相应的异常信息
         throw new UnsupportedOperationException(targetTable +
                 "表在逻辑库中不存在，请检查你的SQL语句或数据节点配置...");

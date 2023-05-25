@@ -9,6 +9,7 @@ public class DbShardingJdbcApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DbShardingJdbcApplication.class, args);
+        System.out.println("启动成功");
     }
 
 }
