@@ -57,7 +57,7 @@ class ShopingServiceImplTest extends DbShardingJdbcApplicationTests {
      * **/
     @Test
     void findByShopingID() {
-        Shoping shoping = shopingService.selectByPrimaryKey(868381720682954752L);
+        Shoping shoping = shopingService.selectByPrimaryKey(868468112482107392L);
         System.out.println(shoping);
     }
 
